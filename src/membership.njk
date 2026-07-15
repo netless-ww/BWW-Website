@@ -1,0 +1,74 @@
+---
+layout: base.njk
+title: "Membership"
+description: "Join Bicycle Wagga Wagga Inc. — annual fees, how to sign up, and member policies."
+permalink: /membership/
+---
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow" style="color:var(--hivis)">Join the club</span>
+    <h1>Membership</h1>
+    <p class="lede">{{ membership.hero_text }}</p>
+  </div>
+</section>
+
+<section class="section-paper">
+  <div class="container split">
+    <div>
+      <span class="eyebrow">Annual fees</span>
+      <div class="stat-row" style="margin-top:0;">
+        <div class="stat"><span class="num">{{ membership.fee_ordinary }}</span><span class="label">{{ membership.fee_ordinary_label }}</span></div>
+        <div class="stat"><span class="num">{{ membership.fee_junior }}</span><span class="label">{{ membership.fee_junior_label }}</span></div>
+      </div>
+      <p style="margin-top:1.6em;">{{ membership.fee_note_1 }}</p>
+      <p>{{ membership.fee_note_2 }}</p>
+    </div>
+    <div class="card">
+      <h3>How to join</h3>
+      <ol style="padding-left:1.2em; color:var(--ink-soft);">
+        {% for s in membership.how_to_join_steps %}<li>{{ s }}</li>{% endfor %}
+      </ol>
+      <a class="btn btn-primary" href="{{ membership.membership_form_pdf }}" target="_blank" rel="noopener">Download membership form (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container">
+    <span class="eyebrow">What you get</span>
+    <h2>More than a discount card</h2>
+    <div class="grid-3">
+      {% for b in membership.benefits %}
+      <div class="card">
+        <h3>{{ b.heading }}</h3>
+        <p style="margin-bottom:0;">{{ b.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="container">
+    <span class="eyebrow" style="color:var(--hivis)">Member policies</span>
+    <h2>What members agree to</h2>
+    <p class="lede">The following policies apply to all Bicycle Wagga Wagga members.</p>
+    <ul class="doc-list" style="max-width:520px;">
+      {% for p in membership.policies %}
+      <li><a href="{{ p.pdf }}" target="_blank" rel="noopener">{{ p.label }} <span class="arrow">→</span></a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section-paper">
+  <div class="container">
+    <div class="callout" style="background:var(--gum-deep);">
+      <div>
+        <h3>Ready to join?</h3>
+        <p>Download the form, make your deposit, and email the Secretary a scanned copy.</p>
+      </div>
+      <a class="btn btn-primary" href="mailto:{{ site.email }}">Email the Secretary</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,11 @@
+hero_text: "Questions about rides, membership, or anything else — the committee would love to hear from you."
+committee_year: "2025"
+committee:
+  - role: "President"
+    name: "Owen Plowman"
+  - role: "Vice President"
+    name: "Stuart Butler"
+  - role: "Secretary / Treasurer"
+    name: "Alan Johnston"
+  - role: "Public Officer"
+    name: "Alan Johnston"

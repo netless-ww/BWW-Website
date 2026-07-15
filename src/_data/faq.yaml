@@ -1,0 +1,41 @@
+items:
+  - question: "When are your regular rides?"
+    answer: "See the <a href=\"/rides/\" style=\"text-decoration:underline;\">Rides</a> page for the full weekly and monthly schedule."
+  - question: "Do I have to be a very good rider to go on BWW rides?"
+    answer: "Some BWW rides require a certain level of fitness, but the majority are rides you can do at a pace you're comfortable with."
+  - question: "Do I have to have a flash bike?"
+    answer: "Any roadworthy bike will generally do the job. BWW does hold some off-road rides that may need a mountain bike or fatter tyres, and on other rides a road bike with skinny tyres is more appropriate — but you don't need the latest and greatest."
+  - question: "Do I have to wear those tight-fitting cycle knicks and shirts?"
+    answer: "No, you don't have to. But you may find you're more comfortable, and enjoy your cycling more, if you do. Cycle knicks have a padded section that absorbs perspiration and a tight fit that minimises chafing. Cycle shirts (jerseys) generally have pockets at the back to carry things, a closer fit for aerodynamics, and fabrics that wick sweat away from the body — and the bright colours help other road users notice you, increasing your safety."
+  - question: "Do I have to be a member of BWW to go on BWW's rides?"
+    answer: "You don't have to be a member, but membership isn't expensive, and it comes with regular updates plus discounts on parts and accessories at both specialist bike shops in Wagga Wagga. If you're not a member, you'll need to scan the QR code from the Ride Leader and complete the online Temporary Membership form before each ride."
+  - question: "How do I join BWW?"
+    answer: "Go to the <a href=\"/membership/\" style=\"text-decoration:underline;\">Membership</a> page for details. Fill in the Application for Membership Form and send it, with your payment, to the address on the form."
+
+local_clubs:
+  - heading: "Mountain biking"
+    text: "For mountain bikers, there's plenty on offer around Wagga Wagga — check the MTB Wagga website for details."
+  - heading: "Triathlon"
+    text: "Want to run and swim as well as cycle? The Wagga Triants are the people to see."
+  - heading: "Bike shops"
+    text: "Kidsons Cycles (105 Fitzmaurice St) and Wagga Cycle Centre (119 Fitzmaurice St) — both offer BWW members a 10% discount on selected parts and accessories."
+
+links_col_1:
+  - label: "Wagga Rail Trail"
+    url: "http://www.waggarailtrail.com.au/#waggarailtrail"
+  - label: "MTB Wagga"
+    url: "https://www.mtbwagga.asn.au"
+  - label: "Wagga Triants"
+    url: "http://www.waggatriclub.org"
+links_col_2:
+  - label: "Bicycle NSW"
+    url: "http://bicyclensw.org.au"
+  - label: "BNSW Events"
+    url: "https://bicyclensw.org.au/events/"
+  - label: "Audax Australia"
+    url: "https://www.audax.org.au"
+links_col_3:
+  - label: "Railtrails Australia"
+    url: "https://www.railtrails.org.au"
+  - label: "Amy Gillett Foundation"
+    url: "http://www.amygillett.org.au"

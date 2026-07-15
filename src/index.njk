@@ -1,0 +1,62 @@
+---
+layout: base.njk
+title: "Bicycle Wagga Wagga Inc."
+description: "Bicycle Wagga Wagga Inc. (BWW) organises regular group rides for cyclists of all abilities in Wagga Wagga, NSW. Join a ride, become a member, ride safe."
+permalink: /
+---
+<section class="hero">
+  <img class="hero-img" src="{{ home.hero_image }}" alt="A large group of BWW cyclists on a road ride under a wide blue Riverina sky.">
+  <div class="hero-content">
+    <span class="hero-tag">{{ home.hero_tag }}</span>
+    <h1>{{ home.hero_heading }}</h1>
+    <p class="lede">{{ home.hero_text }}</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="/rides/">Find a ride</a>
+      <a class="btn btn-outline" href="/membership/">Become a member</a>
+    </div>
+  </div>
+</section>
+
+<section class="section-paper section-tight">
+  <div class="container">
+    <div class="stat-row">
+      {% for s in home.stats %}
+      <div class="stat"><span class="num">{{ s.number }}</span><span class="label">{{ s.label }}</span></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="route" aria-label="Site overview, presented as a ride route">
+  <div class="route-line" aria-hidden="true">
+    <svg viewBox="0 0 2 100" preserveAspectRatio="none"><line class="route-path" x1="1" y1="0" x2="1" y2="100" vector-effect="non-scaling-stroke"/></svg>
+  </div>
+
+  {% for w in home.waypoints %}
+  <div class="waypoint">
+    <div class="waypoint-mark"></div>
+    <div class="waypoint-copy">
+      <span class="waypoint-label">{{ w.label }}</span>
+      <h2>{{ w.heading }}</h2>
+      <p>{{ w.text }}</p>
+      <a class="btn btn-dark" href="{{ w.button_link }}">{{ w.button_text }}</a>
+    </div>
+    <div class="waypoint-media">
+      <img src="{{ w.image }}" alt="">
+    </div>
+  </div>
+  {% endfor %}
+</section>
+
+<section class="section-dark">
+  <div class="container">
+    <div class="callout" style="background:var(--bitumen-soft); border:1px solid rgba(242,195,24,0.25);">
+      <div>
+        <span class="eyebrow" style="color:var(--hivis)">Visiting Wagga Wagga?</span>
+        <h3>{{ home.visitor_callout_heading }}</h3>
+        <p>{{ home.visitor_callout_text }}</p>
+      </div>
+      <a class="btn btn-primary" href="/rides/#visitors">Visitor routes</a>
+    </div>
+  </div>
+</section>

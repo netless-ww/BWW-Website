@@ -1,0 +1,112 @@
+---
+layout: base.njk
+title: "About BWW"
+description: "The history, purpose and committee of Bicycle Wagga Wagga Inc., plus our approach to safe cycling."
+permalink: /about/
+---
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow" style="color:var(--hivis)">{{ about.intro_tag }}</span>
+    <h1>{{ about.intro_heading }}</h1>
+    <p class="lede">{{ about.intro_text }}</p>
+  </div>
+</section>
+
+<section class="section-paper">
+  <div class="container split">
+    <div>
+      <span class="eyebrow">Our purpose</span>
+      <h2>{{ about.history_heading }}</h2>
+      {% for p in about.history_paragraphs %}<p>{{ p }}</p>{% endfor %}
+      <a class="btn btn-dark" href="{{ about.constitution_pdf }}" target="_blank" rel="noopener">View the constitution (PDF)</a>
+    </div>
+    <div>
+      <img src="{{ about.history_image }}" alt="BWW members setting off on a group ride." style="border-radius:4px;">
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container">
+    <span class="eyebrow">What we ride</span>
+    <h2>Casual, weekly, and a bit further afield</h2>
+    <div class="grid-3">
+      {% for r in about.ride_types %}
+      <div class="card">
+        <span class="tag {{ r.tag_style }}">{{ r.tag }}</span>
+        <h3>{{ r.heading }}</h3>
+        <p>{{ r.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section-paper">
+  <div class="container">
+    <span class="eyebrow">Club activities</span>
+    <h2>{{ about.activities_heading }}</h2>
+    <p class="lede">{{ about.activities_text }}</p>
+    <div class="grid-2" style="margin-top:2em;">
+      {% for c in about.activities_cards %}
+      <div class="card">
+        <h3>{{ c.heading }}</h3>
+        <p>{{ c.text }}</p>
+        {% if c.image %}<a class="btn btn-dark" style="margin-top:1em;" href="{{ c.image }}" target="_blank" rel="noopener">See the trail</a>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section-dark" id="safety">
+  <div class="container">
+    <span class="eyebrow" style="color:var(--hivis)">Safe cycling</span>
+    <h2>{{ about.safety_heading }}</h2>
+    <p class="lede">{{ about.safety_text }}</p>
+    <div class="grid-2" style="margin-top:2em;">
+      {% for c in about.safety_cards %}
+      <div class="card" style="background:var(--bitumen-soft); border-color:rgba(255,255,255,0.12);">
+        <h3 style="color:var(--paper);">{{ c.heading }}</h3>
+        <p>{{ c.text }}</p>
+        {% if c.pdf %}<a class="btn btn-outline" href="{{ c.pdf }}" target="_blank" rel="noopener">{{ c.pdf_label }}</a>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    <div class="card" style="background:var(--bitumen-soft); border-color:rgba(255,255,255,0.12); margin-top:26px;">
+      <h3 style="color:var(--paper);">{{ about.hazard_heading }}</h3>
+      <p>{{ about.hazard_text }}</p>
+      <p style="margin-bottom:0;"><strong style="color:var(--paper);">Phone:</strong> {{ about.hazard_phone }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-paper">
+  <div class="container">
+    <span class="eyebrow">Tips & tricks</span>
+    <h2>{{ about.tips_heading }}</h2>
+    <p class="lede">{{ about.tips_text }}</p>
+    <div class="split" style="margin-top:2em; align-items:flex-start;">
+      {% for c in about.tips_cards %}
+      <div class="card">
+        <h3>{{ c.heading }}</h3>
+        <p>{{ c.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section-tight" id="committee">
+  <div class="container">
+    <span class="eyebrow">Committee</span>
+    <h2>{{ about.committee_heading }}</h2>
+    <p class="lede">{{ about.committee_text }}</p>
+    <ul class="doc-list" style="max-width:640px; margin-top:1.6em;">
+      {% for d in about.committee_docs %}
+      <li><a href="{{ d.pdf }}" target="_blank" rel="noopener">{{ d.label }} <span class="arrow">→</span></a></li>
+      {% endfor %}
+    </ul>
+    <p style="margin-top:1.6em;">Need access to the members-only committee page? <a href="/contact/" style="text-decoration:underline;">Get in touch</a>.</p>
+  </div>
+</section>

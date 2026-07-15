@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }} | {{ site.brand }}</title>
+<meta name="description" content="{{ description }}">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="/">Bicycle<span>WW</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
+    <ul class="nav-links">
+      <li><a href="/" {% if page.url == "/" %}class="active"{% endif %}>Welcome</a></li>
+      <li><a href="/about/" {% if page.url == "/about/" %}class="active"{% endif %}>About</a></li>
+      <li><a href="/rides/" {% if page.url == "/rides/" %}class="active"{% endif %}>Rides</a></li>
+      <li><a href="/jersey/" {% if page.url == "/jersey/" %}class="active"{% endif %}>Jersey</a></li>
+      <li><a href="/membership/" {% if page.url == "/membership/" %}class="active"{% endif %}>Membership</a></li>
+      <li><a href="/faq/" {% if page.url == "/faq/" %}class="active"{% endif %}>FAQ</a></li>
+      <li><a href="/contact/" {% if page.url == "/contact/" %}class="active"{% endif %}>Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+{{ content | safe }}
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">{{ site.brand }}</div>
+        <p style="max-width:32ch;">{{ site.tagline }}</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/about/">About BWW</a></li>
+          <li><a href="/rides/">Rides</a></li>
+          <li><a href="/jersey/">Jersey</a></li>
+          <li><a href="/faq/">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Club</h4>
+        <ul>
+          <li><a href="/membership/">Membership</a></li>
+          <li><a href="/about/#safety">Safe cycling</a></li>
+          <li><a href="/about/#committee">Committee</a></li>
+          <li><a href="/rides/#policies">Policies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          <li><a href="{{ site.phone_link }}">{{ site.phone }}</a></li>
+          <li><a href="/contact/">Full contact details</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>{{ site.brand }} Inc. · ABN {{ site.abn }} · {{ site.incorporation_number }}</span>
+      <span>bww.org.au</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

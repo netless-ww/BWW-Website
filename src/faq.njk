@@ -1,0 +1,57 @@
+---
+layout: base.njk
+title: "FAQ"
+description: "Frequently asked questions about riding with Bicycle Wagga Wagga Inc."
+permalink: /faq/
+---
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow" style="color:var(--hivis)">Questions, answered</span>
+    <h1>FAQ</h1>
+    <p class="lede">If your question isn't answered here, <a href="/contact/" style="color:var(--hivis); text-decoration:underline;">email us</a>.</p>
+  </div>
+</section>
+
+<section class="section-paper">
+  <div class="container" style="max-width:820px;">
+    {% for item in faq.items %}
+    <details class="faq-item" {% if loop.first %}open{% endif %}>
+      <summary>{{ item.question }}</summary>
+      <p>{{ item.answer | safe }}</p>
+    </details>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container">
+    <span class="eyebrow">Also useful</span>
+    <h2>Local bike clubs</h2>
+    <div class="grid-3">
+      {% for c in faq.local_clubs %}
+      <div class="card">
+        <h3>{{ c.heading }}</h3>
+        <p style="margin-bottom:0;">{{ c.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section-paper">
+  <div class="container">
+    <span class="eyebrow">Bicycle-related links</span>
+    <h2>Around the district — and beyond</h2>
+    <div class="grid-3" style="margin-top:2em;">
+      <ul class="doc-list">
+        {% for l in faq.links_col_1 %}<li><a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }} <span class="arrow">→</span></a></li>{% endfor %}
+      </ul>
+      <ul class="doc-list">
+        {% for l in faq.links_col_2 %}<li><a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }} <span class="arrow">→</span></a></li>{% endfor %}
+      </ul>
+      <ul class="doc-list">
+        {% for l in faq.links_col_3 %}<li><a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }} <span class="arrow">→</span></a></li>{% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>

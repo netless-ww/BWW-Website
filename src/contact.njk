@@ -1,0 +1,45 @@
+---
+layout: base.njk
+title: "Contact"
+description: "Get in touch with Bicycle Wagga Wagga Inc."
+permalink: /contact/
+---
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow" style="color:var(--hivis)">Say hello</span>
+    <h1>Contact us</h1>
+    <p class="lede">{{ contact.hero_text }}</p>
+  </div>
+</section>
+
+<section class="section-paper">
+  <div class="container split">
+    <div class="card">
+      <h3>E-mail</h3>
+      <p><a href="mailto:{{ site.email }}" style="text-decoration:underline; font-size:1.1rem;">{{ site.email }}</a></p>
+      <h3 style="margin-top:1.6em;">Phone</h3>
+      <p style="margin-bottom:0;"><a href="{{ site.phone_link }}" style="text-decoration:underline; font-size:1.1rem;">{{ site.phone }}</a></p>
+    </div>
+    <div class="card">
+      <h3>BWW Executive, {{ contact.committee_year }}</h3>
+      <table style="width:100%; font-family:var(--font-mono); font-size:0.92rem; border-collapse:collapse;">
+        {% for m in contact.committee %}
+        <tr><td style="padding:8px 0; {% if not loop.first %}border-top:1px solid var(--line);{% endif %} color:var(--ink-soft);">{{ m.role }}</td><td style="padding:8px 0; {% if not loop.first %}border-top:1px solid var(--line);{% endif %} text-align:right; font-weight:600;">{{ m.name }}</td></tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="container">
+    <div class="callout" style="background:var(--bitumen-soft); border:1px solid rgba(242,195,24,0.25);">
+      <div>
+        <span class="eyebrow" style="color:var(--hivis)">New to BWW?</span>
+        <h3>Come ride with us first</h3>
+        <p>You don't need to be a member to join a ride — see the schedule and come along.</p>
+      </div>
+      <a class="btn btn-primary" href="/rides/">See the ride schedule</a>
+    </div>
+  </div>
+</section>

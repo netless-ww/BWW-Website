@@ -1,0 +1,319 @@
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/bww-website  # <-- replace with your actual GitHub org/repo
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+# Editors log in with their own GitHub account (must be added as a
+# Collaborator on the repo — see README). Netlify only relays the
+# OAuth handshake here; it never sees or stores anyone's password.
+site_url: https://bww.org.au
+logo_url: /assets/img/jersey-detail.png
+
+media_folder: "src/assets/img"
+public_folder: "/assets/img"
+
+collections:
+
+  - name: "site"
+    label: "Site settings"
+    files:
+      - file: "src/_data/site.yaml"
+        label: "Brand, contact & footer"
+        name: "site"
+        fields:
+          - { label: "Club name", name: "brand", widget: "string" }
+          - { label: "Tagline (footer)", name: "tagline", widget: "text" }
+          - { label: "Email address", name: "email", widget: "string" }
+          - { label: "Phone (display)", name: "phone", widget: "string" }
+          - { label: "Phone (link, digits only, e.g. tel:0412244529)", name: "phone_link", widget: "string" }
+          - { label: "ABN", name: "abn", widget: "string" }
+          - { label: "Incorporation number", name: "incorporation_number", widget: "string" }
+
+  - name: "home"
+    label: "Home page"
+    files:
+      - file: "src/_data/home.yaml"
+        label: "Home page content"
+        name: "home"
+        fields:
+          - { label: "Small tag above headline", name: "hero_tag", widget: "string" }
+          - { label: "Main headline", name: "hero_heading", widget: "string" }
+          - { label: "Subtext under headline", name: "hero_text", widget: "text" }
+          - { label: "Hero photo", name: "hero_image", widget: "image" }
+          - label: "Quick stats row"
+            name: "stats"
+            widget: "list"
+            fields:
+              - { label: "Number", name: "number", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+          - label: "Route waypoints (the 4 sections down the home page)"
+            name: "waypoints"
+            widget: "list"
+            fields:
+              - { label: "Small label", name: "label", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - { label: "Button text", name: "button_text", widget: "string" }
+              - { label: "Button link", name: "button_link", widget: "string" }
+              - { label: "Photo", name: "image", widget: "image" }
+          - { label: "Visitor callout heading", name: "visitor_callout_heading", widget: "string" }
+          - { label: "Visitor callout text", name: "visitor_callout_text", widget: "text" }
+
+  - name: "about"
+    label: "About page"
+    files:
+      - file: "src/_data/about.yaml"
+        label: "About page content"
+        name: "about"
+        fields:
+          - { label: "Eyebrow tag", name: "intro_tag", widget: "string" }
+          - { label: "Heading", name: "intro_heading", widget: "string" }
+          - { label: "Intro text", name: "intro_text", widget: "text" }
+
+          - { label: "History heading", name: "history_heading", widget: "string" }
+          - label: "History paragraphs"
+            name: "history_paragraphs"
+            widget: "list"
+            field: { label: "Paragraph", name: "paragraph", widget: "text" }
+          - { label: "History photo", name: "history_image", widget: "image" }
+          - { label: "Constitution PDF", name: "constitution_pdf", widget: "file" }
+
+          - label: "Ride types (3 cards)"
+            name: "ride_types"
+            widget: "list"
+            fields:
+              - { label: "Small tag text", name: "tag", widget: "string" }
+              - { label: "Tag colour", name: "tag_style", widget: "select", options: ["tag", "tag-clay", "tag-sky"] }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+
+          - { label: "Activities heading", name: "activities_heading", widget: "string" }
+          - { label: "Activities intro text", name: "activities_text", widget: "text" }
+          - label: "Activity cards"
+            name: "activities_cards"
+            widget: "list"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - { label: "Photo (optional)", name: "image", widget: "image", required: false }
+
+          - { label: "Safety section heading", name: "safety_heading", widget: "string" }
+          - { label: "Safety section intro", name: "safety_text", widget: "text" }
+          - label: "Safety cards"
+            name: "safety_cards"
+            widget: "list"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - { label: "PDF (optional)", name: "pdf", widget: "file", required: false }
+              - { label: "PDF button label (optional)", name: "pdf_label", widget: "string", required: false }
+          - { label: "Hazard box heading", name: "hazard_heading", widget: "string" }
+          - { label: "Hazard box text", name: "hazard_text", widget: "text" }
+          - { label: "Council phone number", name: "hazard_phone", widget: "string" }
+
+          - { label: "Tips section heading", name: "tips_heading", widget: "string" }
+          - { label: "Tips section intro", name: "tips_text", widget: "text" }
+          - label: "Tips cards"
+            name: "tips_cards"
+            widget: "list"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+
+          - { label: "Committee section heading", name: "committee_heading", widget: "string" }
+          - { label: "Committee section text", name: "committee_text", widget: "text" }
+          - label: "Committee position documents"
+            name: "committee_docs"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "PDF file", name: "pdf", widget: "file" }
+
+  - name: "rides"
+    label: "Rides page"
+    files:
+      - file: "src/_data/rides.yaml"
+        label: "Rides page content"
+        name: "rides"
+        fields:
+          - { label: "Schedule last updated", name: "last_updated", widget: "string" }
+          - { label: "Intro text", name: "intro_text", widget: "text" }
+
+          - label: "Ride schedule table"
+            name: "schedule"
+            widget: "list"
+            fields:
+              - { label: "Ride name", name: "name", widget: "string" }
+              - { label: "When (e.g. Every Sunday)", name: "when", widget: "string" }
+              - { label: "Tag text (e.g. Road, Gravel)", name: "tag", widget: "string" }
+              - { label: "Tag colour", name: "tag_style", widget: "select", options: ["tag", "tag-clay", "tag-sky"] }
+              - { label: "Cooler months time", name: "cooler_time", widget: "string" }
+              - { label: "Warmer months time", name: "warmer_time", widget: "string" }
+              - { label: "Meeting point", name: "meets_at", widget: "string" }
+
+          - label: "Ride descriptions"
+            name: "ride_descriptions"
+            widget: "list"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+
+          - { label: "Informal ride heading", name: "informal_ride_heading", widget: "string" }
+          - { label: "Informal ride text", name: "informal_ride_text", widget: "text" }
+
+          - label: "General info bullet points"
+            name: "general_info"
+            widget: "list"
+            field: { label: "Point", name: "point", widget: "text" }
+
+          - { label: "Risk box heading", name: "risk_heading", widget: "string" }
+          - { label: "Risk box text", name: "risk_text", widget: "text" }
+
+          - label: "Policy documents"
+            name: "policies"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "PDF file", name: "pdf", widget: "file" }
+
+          - label: "Annual rides"
+            name: "annual_rides"
+            widget: "list"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+
+          - { label: "Visitor routes intro text", name: "visitor_intro", widget: "text" }
+          - label: "Visitor routes"
+            name: "visitor_routes"
+            widget: "list"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - { label: "RideWithGPS link", name: "link", widget: "string" }
+
+  - name: "jersey"
+    label: "Jersey page"
+    files:
+      - file: "src/_data/jersey.yaml"
+        label: "Jersey page content"
+        name: "jersey"
+        fields:
+          - { label: "Small tag above headline", name: "hero_tag", widget: "string" }
+          - { label: "Headline", name: "hero_heading", widget: "string" }
+          - { label: "Subtext", name: "hero_text", widget: "text" }
+          - { label: "Hero photo", name: "hero_image", widget: "image" }
+
+          - { label: "Story heading", name: "story_heading", widget: "string" }
+          - label: "Story paragraphs"
+            name: "story_paragraphs"
+            widget: "list"
+            field: { label: "Paragraph", name: "paragraph", widget: "text" }
+          - { label: "Story photo", name: "story_image", widget: "image" }
+
+          - { label: "Gallery section heading", name: "gallery_heading", widget: "string" }
+          - { label: "Gallery section intro", name: "gallery_intro", widget: "text" }
+          - label: "Jersey photo gallery"
+            name: "gallery"
+            widget: "list"
+            fields:
+              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Caption shown on photo", name: "caption", widget: "string" }
+              - { label: "Alt text (for accessibility)", name: "alt", widget: "string" }
+
+          - { label: "Note on other eras", name: "eras_note", widget: "text" }
+          - { label: "Callout heading", name: "callout_heading", widget: "string" }
+          - { label: "Callout text", name: "callout_text", widget: "text" }
+
+  - name: "membership"
+    label: "Membership page"
+    files:
+      - file: "src/_data/membership.yaml"
+        label: "Membership page content"
+        name: "membership"
+        fields:
+          - { label: "Intro text", name: "hero_text", widget: "text" }
+          - { label: "Ordinary fee (e.g. $30)", name: "fee_ordinary", widget: "string" }
+          - { label: "Ordinary fee label", name: "fee_ordinary_label", widget: "string" }
+          - { label: "Junior fee (e.g. Free)", name: "fee_junior", widget: "string" }
+          - { label: "Junior fee label", name: "fee_junior_label", widget: "string" }
+          - { label: "Fee note 1", name: "fee_note_1", widget: "text" }
+          - { label: "Fee note 2", name: "fee_note_2", widget: "text" }
+
+          - label: "How to join — steps"
+            name: "how_to_join_steps"
+            widget: "list"
+            field: { label: "Step", name: "step", widget: "text" }
+          - { label: "Membership form PDF", name: "membership_form_pdf", widget: "file" }
+
+          - label: "Membership benefits"
+            name: "benefits"
+            widget: "list"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+
+          - label: "Member policy documents"
+            name: "policies"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "PDF file", name: "pdf", widget: "file" }
+
+  - name: "faq"
+    label: "FAQ page"
+    files:
+      - file: "src/_data/faq.yaml"
+        label: "FAQ page content"
+        name: "faq"
+        fields:
+          - label: "Questions & answers"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text", hint: "You can use basic HTML like <a href=\"/rides/\">a link</a> if needed." }
+
+          - label: "Local clubs"
+            name: "local_clubs"
+            widget: "list"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+
+          - label: "Links — column 1"
+            name: "links_col_1"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - label: "Links — column 2"
+            name: "links_col_2"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - label: "Links — column 3"
+            name: "links_col_3"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+
+  - name: "contact"
+    label: "Contact page"
+    files:
+      - file: "src/_data/contact.yaml"
+        label: "Contact page content"
+        name: "contact"
+        fields:
+          - { label: "Intro text", name: "hero_text", widget: "text" }
+          - { label: "Committee year", name: "committee_year", widget: "string" }
+          - label: "Committee members"
+            name: "committee"
+            widget: "list"
+            fields:
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }

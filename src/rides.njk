@@ -1,0 +1,116 @@
+---
+layout: base.njk
+title: "Rides"
+description: "BWW's regular ride schedule — Sunday Ride, Coffee Grinds, Fat Tyred Ride and Gravel Ride — plus policies and visitor routes."
+permalink: /rides/
+---
+<section class="page-hero">
+  <img class="hero-img" src="/assets/img/rides-hero.jpg" alt="" style="position:absolute; inset:0; opacity:0.28;">
+  <div class="container" style="position:relative;">
+    <span class="eyebrow" style="color:var(--hivis)">All abilities welcome</span>
+    <h1>Rides</h1>
+    <p class="lede">{{ rides.intro_text }}</p>
+  </div>
+</section>
+
+<section class="section-paper">
+  <div class="container">
+    <span class="eyebrow">Weekly & monthly schedule</span>
+    <h2>Regular rides</h2>
+    <p class="lede">Last updated {{ rides.last_updated }}. Times shift with the seasons — please arrive a few minutes early for the Ride Leader's briefing.</p>
+
+    <div class="table-wrap" style="margin-top:2em;">
+      <table class="cue-sheet">
+        <thead>
+          <tr><th>Ride</th><th>When</th><th>Cooler months (Apr–Oct)</th><th>Warmer months (Nov–Mar)</th><th>Meets at</th></tr>
+        </thead>
+        <tbody>
+          {% for s in rides.schedule %}
+          <tr>
+            <td class="ride-name">{{ s.name }}</td>
+            <td>{{ s.when }}<br><span class="tag {{ s.tag_style }}">{{ s.tag }}</span></td>
+            <td>{{ s.cooler_time }}</td>
+            <td>{{ s.warmer_time }}</td>
+            <td>{{ s.meets_at }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid-2" style="margin-top:2.4em;">
+      {% for d in rides.ride_descriptions %}
+      <div class="card">
+        <h3>{{ d.heading }}</h3>
+        <p>{{ d.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="card" style="margin-top:1.6em;">
+      <h3>{{ rides.informal_ride_heading }}</h3>
+      <p style="margin-bottom:0;">{{ rides.informal_ride_text }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container">
+    <span class="eyebrow">Good to know</span>
+    <h2>General ride information</h2>
+    <div class="grid-2" style="align-items:flex-start;">
+      <ul style="padding-left:1.2em; color:var(--ink-soft);">
+        {% for i in rides.general_info %}<li>{{ i }}</li>{% endfor %}
+      </ul>
+      <div class="card">
+        <h3>{{ rides.risk_heading }}</h3>
+        <p style="margin-bottom:0;">{{ rides.risk_text }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-paper" id="policies">
+  <div class="container">
+    <span class="eyebrow">Required reading</span>
+    <h2>Policies covering every BWW ride</h2>
+    <ul class="doc-list" style="max-width:640px;">
+      {% for p in rides.policies %}
+      <li><a href="{{ p.pdf }}" target="_blank" rel="noopener">{{ p.label }} <span class="arrow">→</span></a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="container">
+    <span class="eyebrow" style="color:var(--hivis)">Annual rides</span>
+    <h2>Weekend trips further afield</h2>
+    <p class="lede">Each year BWW runs a number of weekend rides that involve travelling to other towns in the district, sometimes staying overnight. Riders can go the full distance or part of the way, depending on how they feel.</p>
+    <div class="grid-2" style="margin-top:2em;">
+      {% for a in rides.annual_rides %}
+      <div class="card" style="background:var(--bitumen-soft); border-color:rgba(255,255,255,0.12);">
+        <h3 style="color:var(--paper);">{{ a.heading }}</h3>
+        <p style="margin-bottom:0;">{{ a.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section-paper" id="visitors">
+  <div class="container">
+    <span class="eyebrow">Riding through Wagga?</span>
+    <h2>Routes for visitors</h2>
+    <p class="lede">{{ rides.visitor_intro }} <a href="https://ridewithgps.com/signup" style="text-decoration:underline;">Sign up here</a>.</p>
+    <div class="grid-3" style="margin-top:2em;">
+      {% for v in rides.visitor_routes %}
+      <div class="card">
+        <h3>{{ v.heading }}</h3>
+        <p>{{ v.text }}</p>
+        <a class="btn btn-dark" href="{{ v.link }}" target="_blank" rel="noopener">View route →</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

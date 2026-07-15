@@ -1,0 +1,28 @@
+hero_text: "Membership is not expensive, and it's easily recouped through discounts at both specialist bike shops in Wagga Wagga."
+
+fee_ordinary: "$30"
+fee_ordinary_label: "Ordinary membership"
+fee_junior: "Free"
+fee_junior_label: "Junior (under 18)"
+fee_note_1: "The membership year is the calendar year, so it's easy to remember when you need to renew."
+fee_note_2: "Your membership does not include personal insurance cover. Membership of Bicycle NSW, among other benefits, does provide some insurance — details are on the Bicycle NSW website."
+
+how_to_join_steps:
+  - "Complete the Application for Membership Form."
+  - "Deposit your membership payment directly — BSB 032-769, Account Number 133810 — noting your name with the deposit."
+  - "Email a scanned copy of the completed form to the Secretary."
+membership_form_pdf: "/assets/docs/bww.MembershipForm.pdf"
+
+benefits:
+  - heading: "Shop discounts"
+    text: "10% off parts and accessories at both specialist bike shops in Wagga Wagga."
+  - heading: "Stay in the loop"
+    text: "Ride and event updates through the club's WhatsApp group and regular email, plus the BWW Facebook group."
+  - heading: "A say in the club"
+    text: "Members shape what BWW rides and runs next, and can stand for committee roles."
+
+policies:
+  - label: "Code of Conduct Policy"
+    pdf: "/assets/docs/BWW-Code-of-Conduct-Policy-Jan-2026.pdf"
+  - label: "Grievance Policy"
+    pdf: "/assets/docs/BWW-Grievance-Policy-Jan-2026.pdf"

@@ -1,0 +1,12 @@
+{
+  "name": "bicycle-wagga-wagga",
+  "version": "1.0.0",
+  "description": "Bicycle Wagga Wagga Inc. website, built with Eleventy and editable via Decap CMS.",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}
