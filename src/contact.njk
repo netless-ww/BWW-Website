@@ -8,7 +8,7 @@ permalink: /contact/
   <div class="container">
     <span class="eyebrow" style="color:var(--hivis)">Say hello</span>
     <h1>Contact us</h1>
-    <p class="lede">{{ contact.hero_text }}</p>
+    <p class="lede">{{ contact.hero_text | md | safe }}</p>
   </div>
 </section>
 

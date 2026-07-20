@@ -8,7 +8,7 @@ permalink: /membership/
   <div class="container">
     <span class="eyebrow" style="color:var(--hivis)">Join the club</span>
     <h1>Membership</h1>
-    <p class="lede">{{ membership.hero_text }}</p>
+    <p class="lede">{{ membership.hero_text | md | safe }}</p>
   </div>
 </section>
 
@@ -20,13 +20,13 @@ permalink: /membership/
         <div class="stat"><span class="num">{{ membership.fee_ordinary }}</span><span class="label">{{ membership.fee_ordinary_label }}</span></div>
         <div class="stat"><span class="num">{{ membership.fee_junior }}</span><span class="label">{{ membership.fee_junior_label }}</span></div>
       </div>
-      <p style="margin-top:1.6em;">{{ membership.fee_note_1 }}</p>
-      <p>{{ membership.fee_note_2 }}</p>
+      <p style="margin-top:1.6em;">{{ membership.fee_note_1 | md | safe }}</p>
+      <p>{{ membership.fee_note_2 | md | safe }}</p>
     </div>
     <div class="card">
       <h3>How to join</h3>
       <ol style="padding-left:1.2em; color:var(--ink-soft);">
-        {% for s in membership.how_to_join_steps %}<li>{{ s }}</li>{% endfor %}
+        {% for s in membership.how_to_join_steps %}<li>{{ s | md | safe }}</li>{% endfor %}
       </ol>
       <a class="btn btn-primary" href="{{ membership.membership_form_pdf }}" target="_blank" rel="noopener">Download membership form (PDF)</a>
     </div>
@@ -41,7 +41,7 @@ permalink: /membership/
       {% for b in membership.benefits %}
       <div class="card">
         <h3>{{ b.heading }}</h3>
-        <p style="margin-bottom:0;">{{ b.text }}</p>
+        <p style="margin-bottom:0;">{{ b.text | md | safe }}</p>
       </div>
       {% endfor %}
     </div>

@@ -8,7 +8,7 @@ permalink: /about/
   <div class="container">
     <span class="eyebrow" style="color:var(--hivis)">{{ about.intro_tag }}</span>
     <h1>{{ about.intro_heading }}</h1>
-    <p class="lede">{{ about.intro_text }}</p>
+    <p class="lede">{{ about.intro_text | md | safe }}</p>
   </div>
 </section>
 
@@ -17,7 +17,7 @@ permalink: /about/
     <div>
       <span class="eyebrow">Our purpose</span>
       <h2>{{ about.history_heading }}</h2>
-      {% for p in about.history_paragraphs %}<p>{{ p }}</p>{% endfor %}
+      {% for p in about.history_paragraphs %}<p>{{ p | md | safe }}</p>{% endfor %}
       <a class="btn btn-dark" href="{{ about.constitution_pdf }}" target="_blank" rel="noopener">View the constitution (PDF)</a>
     </div>
     <div>
@@ -35,7 +35,7 @@ permalink: /about/
       <div class="card">
         <span class="tag {{ r.tag_style }}">{{ r.tag }}</span>
         <h3>{{ r.heading }}</h3>
-        <p>{{ r.text }}</p>
+        <p>{{ r.text | md | safe }}</p>
       </div>
       {% endfor %}
     </div>
@@ -46,12 +46,12 @@ permalink: /about/
   <div class="container">
     <span class="eyebrow">Club activities</span>
     <h2>{{ about.activities_heading }}</h2>
-    <p class="lede">{{ about.activities_text }}</p>
+    <p class="lede">{{ about.activities_text | md | safe }}</p>
     <div class="grid-2" style="margin-top:2em;">
       {% for c in about.activities_cards %}
       <div class="card">
         <h3>{{ c.heading }}</h3>
-        <p>{{ c.text }}</p>
+        <p>{{ c.text | md | safe }}</p>
         {% if c.image %}<a class="btn btn-dark" style="margin-top:1em;" href="{{ c.image }}" target="_blank" rel="noopener">See the trail</a>{% endif %}
       </div>
       {% endfor %}
@@ -63,19 +63,19 @@ permalink: /about/
   <div class="container">
     <span class="eyebrow" style="color:var(--hivis)">Safe cycling</span>
     <h2>{{ about.safety_heading }}</h2>
-    <p class="lede">{{ about.safety_text }}</p>
+    <p class="lede">{{ about.safety_text | md | safe }}</p>
     <div class="grid-2" style="margin-top:2em;">
       {% for c in about.safety_cards %}
       <div class="card" style="background:var(--bitumen-soft); border-color:rgba(255,255,255,0.12);">
         <h3 style="color:var(--paper);">{{ c.heading }}</h3>
-        <p>{{ c.text }}</p>
+        <p>{{ c.text | md | safe }}</p>
         {% if c.pdf %}<a class="btn btn-outline" href="{{ c.pdf }}" target="_blank" rel="noopener">{{ c.pdf_label }}</a>{% endif %}
       </div>
       {% endfor %}
     </div>
     <div class="card" style="background:var(--bitumen-soft); border-color:rgba(255,255,255,0.12); margin-top:26px;">
       <h3 style="color:var(--paper);">{{ about.hazard_heading }}</h3>
-      <p>{{ about.hazard_text }}</p>
+      <p>{{ about.hazard_text | md | safe }}</p>
       <p style="margin-bottom:0;"><strong style="color:var(--paper);">Phone:</strong> {{ about.hazard_phone }}</p>
     </div>
   </div>
@@ -85,12 +85,12 @@ permalink: /about/
   <div class="container">
     <span class="eyebrow">Tips & tricks</span>
     <h2>{{ about.tips_heading }}</h2>
-    <p class="lede">{{ about.tips_text }}</p>
+    <p class="lede">{{ about.tips_text | md | safe }}</p>
     <div class="split" style="margin-top:2em; align-items:flex-start;">
       {% for c in about.tips_cards %}
       <div class="card">
         <h3>{{ c.heading }}</h3>
-        <p>{{ c.text }}</p>
+        <p>{{ c.text | md | safe }}</p>
       </div>
       {% endfor %}
     </div>
@@ -101,7 +101,7 @@ permalink: /about/
   <div class="container">
     <span class="eyebrow">Committee</span>
     <h2>{{ about.committee_heading }}</h2>
-    <p class="lede">{{ about.committee_text }}</p>
+    <p class="lede">{{ about.committee_text | md | safe }}</p>
     <ul class="doc-list" style="max-width:640px; margin-top:1.6em;">
       {% for d in about.committee_docs %}
       <li><a href="{{ d.pdf }}" target="_blank" rel="noopener">{{ d.label }} <span class="arrow">→</span></a></li>

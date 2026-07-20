@@ -9,7 +9,7 @@ permalink: /rides/
   <div class="container" style="position:relative;">
     <span class="eyebrow" style="color:var(--hivis)">All abilities welcome</span>
     <h1>Rides</h1>
-    <p class="lede">{{ rides.intro_text }}</p>
+    <p class="lede">{{ rides.intro_text | md | safe }}</p>
   </div>
 </section>
 
@@ -42,14 +42,14 @@ permalink: /rides/
       {% for d in rides.ride_descriptions %}
       <div class="card">
         <h3>{{ d.heading }}</h3>
-        <p>{{ d.text }}</p>
+        <p>{{ d.text | md | safe }}</p>
       </div>
       {% endfor %}
     </div>
 
     <div class="card" style="margin-top:1.6em;">
       <h3>{{ rides.informal_ride_heading }}</h3>
-      <p style="margin-bottom:0;">{{ rides.informal_ride_text }}</p>
+      <p style="margin-bottom:0;">{{ rides.informal_ride_text | md | safe }}</p>
     </div>
   </div>
 </section>
@@ -60,11 +60,11 @@ permalink: /rides/
     <h2>General ride information</h2>
     <div class="grid-2" style="align-items:flex-start;">
       <ul style="padding-left:1.2em; color:var(--ink-soft);">
-        {% for i in rides.general_info %}<li>{{ i }}</li>{% endfor %}
+        {% for i in rides.general_info %}<li>{{ i | md | safe }}</li>{% endfor %}
       </ul>
       <div class="card">
         <h3>{{ rides.risk_heading }}</h3>
-        <p style="margin-bottom:0;">{{ rides.risk_text }}</p>
+        <p style="margin-bottom:0;">{{ rides.risk_text | md | safe }}</p>
       </div>
     </div>
   </div>
@@ -91,7 +91,7 @@ permalink: /rides/
       {% for a in rides.annual_rides %}
       <div class="card" style="background:var(--bitumen-soft); border-color:rgba(255,255,255,0.12);">
         <h3 style="color:var(--paper);">{{ a.heading }}</h3>
-        <p style="margin-bottom:0;">{{ a.text }}</p>
+        <p style="margin-bottom:0;">{{ a.text | md | safe }}</p>
       </div>
       {% endfor %}
     </div>
@@ -102,12 +102,12 @@ permalink: /rides/
   <div class="container">
     <span class="eyebrow">Riding through Wagga?</span>
     <h2>Routes for visitors</h2>
-    <p class="lede">{{ rides.visitor_intro }} <a href="https://ridewithgps.com/signup" style="text-decoration:underline;">Sign up here</a>.</p>
+    <p class="lede">{{ rides.visitor_intro | md | safe }} <a href="https://ridewithgps.com/signup" style="text-decoration:underline;">Sign up here</a>.</p>
     <div class="grid-3" style="margin-top:2em;">
       {% for v in rides.visitor_routes %}
       <div class="card">
         <h3>{{ v.heading }}</h3>
-        <p>{{ v.text }}</p>
+        <p>{{ v.text | md | safe }}</p>
         <a class="btn btn-dark" href="{{ v.link }}" target="_blank" rel="noopener">View route →</a>
       </div>
       {% endfor %}

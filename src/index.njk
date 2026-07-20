@@ -9,7 +9,7 @@ permalink: /
   <div class="hero-content">
     <span class="hero-tag">{{ home.hero_tag }}</span>
     <h1>{{ home.hero_heading }}</h1>
-    <p class="lede">{{ home.hero_text }}</p>
+    <p class="lede">{{ home.hero_text | md | safe }}</p>
     <div class="btn-row">
       <a class="btn btn-primary" href="/rides/">Find a ride</a>
       <a class="btn btn-outline" href="/membership/">Become a member</a>
@@ -38,7 +38,7 @@ permalink: /
     <div class="waypoint-copy">
       <span class="waypoint-label">{{ w.label }}</span>
       <h2>{{ w.heading }}</h2>
-      <p>{{ w.text }}</p>
+      <p>{{ w.text | md | safe }}</p>
       <a class="btn btn-dark" href="{{ w.button_link }}">{{ w.button_text }}</a>
     </div>
     <div class="waypoint-media">
@@ -54,7 +54,7 @@ permalink: /
       <div>
         <span class="eyebrow" style="color:var(--hivis)">Visiting Wagga Wagga?</span>
         <h3>{{ home.visitor_callout_heading }}</h3>
-        <p>{{ home.visitor_callout_text }}</p>
+        <p>{{ home.visitor_callout_text | md | safe }}</p>
       </div>
       <a class="btn btn-primary" href="/rides/#visitors">Visitor routes</a>
     </div>

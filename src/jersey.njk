@@ -9,7 +9,7 @@ permalink: /jersey/
   <div class="hero-content">
     <span class="hero-tag">{{ jersey.hero_tag }}</span>
     <h1>{{ jersey.hero_heading }}</h1>
-    <p class="lede">{{ jersey.hero_text }}</p>
+    <p class="lede">{{ jersey.hero_text | md | safe }}</p>
   </div>
 </section>
 
@@ -18,7 +18,7 @@ permalink: /jersey/
     <div>
       <span class="eyebrow">The story</span>
       <h2>{{ jersey.story_heading }}</h2>
-      {% for p in jersey.story_paragraphs %}<p>{{ p }}</p>{% endfor %}
+      {% for p in jersey.story_paragraphs %}<p>{{ p | md | safe }}</p>{% endfor %}
       <a class="btn btn-dark" href="/contact/">Contact the Secretary</a>
     </div>
     <div>
@@ -31,7 +31,7 @@ permalink: /jersey/
   <div class="container">
     <span class="eyebrow">Where in the World</span>
     <h2>{{ jersey.gallery_heading }}</h2>
-    <p class="lede">{{ jersey.gallery_intro }}</p>
+    <p class="lede">{{ jersey.gallery_intro | md | safe }}</p>
     <div class="gallery" style="margin-top:2em;">
       {% for g in jersey.gallery %}
       {% if loop.index <= 4 %}
@@ -51,7 +51,7 @@ permalink: /jersey/
       {% endif %}
       {% endfor %}
     </div>
-    <p style="margin-top:1.6em;">{{ jersey.eras_note }}</p>
+    <p style="margin-top:1.6em;">{{ jersey.eras_note | md | safe }}</p>
   </div>
 </section>
 
@@ -61,7 +61,7 @@ permalink: /jersey/
       <div>
         <span class="eyebrow" style="color:var(--hivis)">Own a piece of it</span>
         <h3>{{ jersey.callout_heading }}</h3>
-        <p>{{ jersey.callout_text }}</p>
+        <p>{{ jersey.callout_text | md | safe }}</p>
       </div>
       <a class="btn btn-primary" href="/contact/">Get in touch</a>
     </div>
